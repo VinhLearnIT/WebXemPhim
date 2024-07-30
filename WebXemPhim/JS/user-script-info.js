@@ -14,8 +14,8 @@
             })
 
             infoSteep[index].classList.add('show');
-            if (index != 0) {
-                $('.input-group input').val("");
+            if (index == 2) {
+                $('.info-changepass input').val("");
                 $('.input-group input + span').removeClass("show");
             }
         })
@@ -82,7 +82,14 @@
                     setTimeout(function () {
                         x.className = x.className.replace("show", "");
                     }, 3000);
-
+                    $('.info-change input[name="currentpass"]').val("");
+                    var elementInfo = `
+                                <li>Họ và tên: ${nameUser}</li>
+                                <li>Ngày sinh: ${birthDay.getDate()}/${birthDay.getMonth() + 1}/${birthDay.getFullYear()} </li>
+                                <li>Email: ${email}</li>
+                                `
+                    console.log(elementInfo)
+                    $('.info-main ul').html(elementInfo);
                 } else {
                     x.className = "show error";
                     x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';
@@ -146,7 +153,7 @@
                     x.querySelector("#img").innerHTML = '<i class="ri-checkbox-circle-line"></i>';
                     x.querySelector("#desc").innerHTML = "Thay đổi mật khẩu thành công!";
                     setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-
+                    $('.info-changepass input').val("");
                 } else {
                     x.className = "show error";
                     x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';

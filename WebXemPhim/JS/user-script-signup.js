@@ -85,13 +85,13 @@
                     setTimeout(function () {
                         x.className = x.className.replace("show", "");
                         location.href = "/UserSignin/Index";
-                    }, 3000);
+                    }, 5000);
 
                 } else {
                     x.className = "show error";
                     x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';
                     x.querySelector("#desc").innerHTML = data.message;
-                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
                 }
             },
             error: function (xhr, status, error) {

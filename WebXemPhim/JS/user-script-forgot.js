@@ -113,8 +113,21 @@ $(document).ready(function () {
                         newPass
                     },
                     success: function (data) {
+                        var x = document.querySelector("#toast");
                         if (data.success) {
-                            location.href = "/UserSignin/Index";
+                            x.className = "show success";
+                            x.querySelector("#img").innerHTML = '<i class="ri-checkbox-circle-line"></i>';
+                            x.querySelector("#desc").innerHTML = "Khôi phục mật khẩu thành công!";
+                            setTimeout(function () {
+                                x.className = x.className.replace("show", "");
+                                location.href = "/UserSignin/Index";
+                            }, 5000);
+
+                        } else {
+                            x.className = "show error";
+                            x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';
+                            x.querySelector("#desc").innerHTML = "Khôi phục mật khẩu không thành công!";;
+                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
                         }
                     },
                     error: function (xhr, status, error) {
