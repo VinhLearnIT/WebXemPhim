@@ -77,7 +77,22 @@
                 email
             },
             success: function (data) {
-                console.log(data);
+                var x = document.querySelector("#toast");
+                if (data.success) {
+                    x.className = "show success";
+                    x.querySelector("#img").innerHTML = '<i class="ri-checkbox-circle-line"></i>';
+                    x.querySelector("#desc").innerHTML = "Đăng ký tài khoản thành công!";
+                    setTimeout(function () {
+                        x.className = x.className.replace("show", "");
+                        location.href = "/UserSignin/Index";
+                    }, 3000);
+
+                } else {
+                    x.className = "show error";
+                    x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';
+                    x.querySelector("#desc").innerHTML = data.message;
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                }
             },
             error: function (xhr, status, error) {
                 console.error(xhr.responseText);

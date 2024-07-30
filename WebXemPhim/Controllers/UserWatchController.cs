@@ -31,6 +31,7 @@ namespace WebXemPhim.Controllers
         {
             PhimDBEntities db = new PhimDBEntities();
             var idNguoiDung = int.Parse(Session["UserID"].ToString());
+            var NguoiDung = db.NguoiDungs.FirstOrDefault(x => x.IDND == idNguoiDung);
             var newComment = new BinhLuan
             {
                 IDPhim = idPhim,
@@ -39,7 +40,7 @@ namespace WebXemPhim.Controllers
             };
             db.BinhLuans.Add(newComment);
             db.SaveChanges();
-            return Json(new { success = true, idComment = newComment.IDBL}, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, idComment = newComment.IDBL, Name = NguoiDung.TenND}, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

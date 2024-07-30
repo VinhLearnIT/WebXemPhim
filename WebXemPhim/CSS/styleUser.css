@@ -28,6 +28,162 @@ button {
     border: none;
 }
 
+#toast {
+    visibility: hidden;
+    max-width: 20px;
+    height: 50px;
+    margin: auto;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 60px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#toast #img{
+	min-width: 50px ;
+	min-height: 50px;   
+    float: left;  
+    padding-top: 16px;
+    padding-bottom: 16px;  
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+#toast.success #img {
+    background-color: #09bf2f;
+}
+
+#toast.success {
+    background-color: #44d663;
+}
+
+#toast.error #img {
+    background-color: #bf0921;
+}
+
+#toast.error {
+    background-color: #cc3d50;
+}
+#toast #img i {
+    font-size: 25px;
+    margin-top: 2px;
+}
+
+#toast #desc{
+    color: #fff;   
+    padding: 16px;    
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+    display: flex;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 60px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 60px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 0px} 
+    to {min-width: 400px}
+}
+
+@keyframes expand {
+    from {
+        min-width: 0px
+    }
+    to {
+        min-width: 400px
+    }
+}
+@-webkit-keyframes stay {
+    from {
+        min-width: 400px
+    }
+    to {
+        min-width: 400px
+    }
+}
+
+@keyframes stay {
+    from {
+        min-width: 400px
+    }
+    to {
+        min-width: 400px
+    }
+}
+@-webkit-keyframes shrink {
+    from {
+        min-width: 400px;
+    }
+    to {
+        min-width: 0px;
+    }
+}
+
+@keyframes shrink {
+    from {
+        min-width: 400px;
+    }
+    to {
+        min-width: 0px;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 60px;
+        opacity: 1;
+    }
+    to {
+        top: 90px;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 60px;
+        opacity: 1;
+    }
+    to {
+        top: 90px;
+        opacity: 0;
+    }
+}
+
 input {
     outline: none;
     border: none;
@@ -791,12 +947,17 @@ header {
     gap: 15px;
 }
 
+.comment-item p {
+    font-size: 14px;
+}
+
 .comment-item input {
     background-color: var(--purple);
     color: var(--white);
     padding: 10px;
     border-radius: 8px;
     width: 500px;
+    margin-top: 8px;
 }
 
 .comment-item .actions {

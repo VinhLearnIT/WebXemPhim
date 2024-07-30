@@ -34,6 +34,8 @@
             <p>@PhimWatch.NgonNgu</p>
             <p>-</p>
             <p>@PhimWatch.ChatLuong</p>
+            <p>-</p>
+            <p>Lượt xem: @PhimWatch.LuotXem</p>
         </div>
         <div class="watch-group">
             <p>Đạo diễn: </p>
@@ -112,7 +114,10 @@
                         <div class="avatar">
                             <img src="~/Image_User/avatar.png" alt="">
                         </div>
-                        <input type="text" value="@item.NDBL" readonly>
+                        <div>
+                            <p>@item.NguoiDung.TenND</p>
+                            <input type="text" value="@item.NDBL" readonly>
+                        </div>
                     </div>
                     @if (Session["UserID"] != null)
                     {

@@ -74,7 +74,22 @@
                 currentPass
             },
             success: function (data) {
-                console.log(data);
+                var x = document.querySelector("#toast");
+                if (data.success) {
+                    x.className = "show success";
+                    x.querySelector("#img").innerHTML = '<i class="ri-checkbox-circle-line"></i>';
+                    x.querySelector("#desc").innerHTML = "Thay đổi thông tin thành công!";
+                    setTimeout(function () {
+                        x.className = x.className.replace("show", "");
+                    }, 3000);
+
+                } else {
+                    x.className = "show error";
+                    x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';
+                    x.querySelector("#desc").innerHTML = "Thay đổi thông tin không thành công!";
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                }
+
             },
             error: function (xhr, status, error) {
                 console.error(xhr.responseText);
@@ -125,7 +140,20 @@
                 newPass
             },
             success: function (data) {
-                console.log(data);
+                var x = document.querySelector("#toast");
+                if (data.success) {
+                    x.className = "show success";
+                    x.querySelector("#img").innerHTML = '<i class="ri-checkbox-circle-line"></i>';
+                    x.querySelector("#desc").innerHTML = "Thay đổi mật khẩu thành công!";
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+
+                } else {
+                    x.className = "show error";
+                    x.querySelector("#img").innerHTML = '<i class="ri-close-circle-line"></i>';
+                    x.querySelector("#desc").innerHTML = "Thay đổi mật khẩu không thành công!";
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                }
+
             },
             error: function (xhr, status, error) {
                 console.error(xhr.responseText);

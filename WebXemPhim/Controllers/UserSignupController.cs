@@ -25,7 +25,7 @@ namespace WebXemPhim.Controllers
             var user = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == userName || x.Email == email);
             if (user != null)
             {
-                return Json(new { success = false, message = "Tên tài khoản hoặc email đã được sử dụng." }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, message = "Tài khoản hoặc email đã được sử dụng." }, JsonRequestBehavior.AllowGet);
             }
             var newUser = new NguoiDung
             {

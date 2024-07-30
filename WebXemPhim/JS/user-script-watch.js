@@ -24,7 +24,10 @@
                                 <div class="avatar">
                                     <img src="/Image_User/avatar.png" alt="">
                                 </div>
-                                <input type="text" value="${commentstr}" readonly>
+                                <div>
+                                    <p>${data.Name}</p>
+                                    <input type="text" value="${commentstr}" readonly>
+                                </div>                                
                             </div>
                             <div class="actions show">
                                 <button class="comment-edit show">Chỉnh sửa</button>
